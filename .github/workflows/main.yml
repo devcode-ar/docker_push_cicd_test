@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - release
+      - main
 env:
   VERSION: "v1.0"
   ENVIROMENT: "prod"
