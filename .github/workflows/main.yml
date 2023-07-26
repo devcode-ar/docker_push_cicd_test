@@ -24,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: gastonbarbaccia/prueba_docker
+          images: gastonbarbaccia/prueba_docker:v1.0
       
       # Crear 2 secretos llamados DOCKER_USERNAME (usuario de dockerhub) y DOCKER_PASSWORD (contraseña de dockerhub)
       
@@ -34,5 +34,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ env.VERSION }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
