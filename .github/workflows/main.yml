@@ -4,8 +4,8 @@ on:
       - release
       - main
 env:
-  VERSION: "prueba_docker"
-  ENVIROMENT: "v1.0"
+  VERSION: "v1.0"
+  ENVIROMENT: "prod"
   
 jobs:
   push_to_registry:
@@ -20,6 +20,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+    
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: gastonbarbaccia/prueba_docker
       
       # Crear 2 secretos llamados DOCKER_USERNAME (usuario de dockerhub) y DOCKER_PASSWORD (contraseña de dockerhub)
       
