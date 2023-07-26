@@ -4,8 +4,8 @@ on:
       - release
       - main
 env:
-  VERSION: "v1.0"
-  ENVIROMENT: "prod"
+  VERSION: "prueba_docker"
+  ENVIROMENT: "v1.0"
   
 jobs:
   push_to_registry:
